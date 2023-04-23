@@ -39,7 +39,7 @@ async function fetchDoctorsData() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          track_id: "4440016811946056434fe6d99606",
+          track_id: "3652116811938886434fba0ec9ed",
         }),
       }
     );
@@ -97,7 +97,7 @@ fetchDoctorsData();
 
 // ***************** API to verify or deny doctor data *****************
 
-async function verifyDoctorsData() {
+async function verifyDoctorsData(action_value) {
   try {
     const response = await fetch(
       "https://dnestapi.docquity.com/4.3/profile-verification/action",
@@ -115,8 +115,8 @@ async function verifyDoctorsData() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          track_id: "4440016811946056434fe6d99606",
-          action: "1",
+          track_id: "3652116811938886434fba0ec9ed",
+          action: `${action_value}`,
         }),
       }
     );
@@ -129,7 +129,25 @@ async function verifyDoctorsData() {
   }
 }
 
-verifyDoctorsData();
+// verifyDoctorsData();
+
+let action_value = 0;
+
+const noButton = document.getElementsByClassName("button_white");
+const yesButton = document.getElementsByClassName("button_black");
+
+function noButtonClicked () {
+  action_value = 0;
+  console.log(action_value);
+  verifyDoctorsData(action_value);
+};
+
+function yesButtonClicked() {
+  action_value = 1;
+  console.log(action_value);
+  verifyDoctorsData(action_value);
+};
+
 
 //
 //
