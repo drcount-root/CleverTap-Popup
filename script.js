@@ -39,7 +39,7 @@ async function fetchDoctorsData() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          track_id: "3652116811938886434fba0ec9ed",
+          track_id: "153731681220645643564261f7d3",
         }),
       }
     );
@@ -55,6 +55,11 @@ async function fetchDoctorsData() {
     for (let i = 0; i < doctorsData.length; i++) {
       const edu = doctorsData[i];
 
+      const deg = !Object.keys(edu)[0] ? 'display: none' : 'display: block';
+      const inst = !Object.keys(edu)[1] ? 'display: none' : 'display: block';
+
+      // const lvl = !Object.keys(edu)[1] ? 'display: none' : 'display: block';
+
       if (doctorsData.length >= 1) {
         const html = `
         <div class="edu">
@@ -62,7 +67,7 @@ async function fetchDoctorsData() {
               <span>Education ${i + 1}</span>
         </div>
         <div class="dividers">
-            <div>
+            <div style="${deg}">
                 <div class="tag degree_label">${Object.keys(edu)[0]}</div>
                 <div class="tag_content degree">
                     ${Object.values(edu)[0]}
@@ -74,7 +79,7 @@ async function fetchDoctorsData() {
                 <div class="tag_content level">Add Level of Degree</div>
             </div>
 
-            <div>
+            <div style="${inst}">
                 <div class="tag">${Object.keys(edu)[1]}</div>
                 <div class="tag_content inst">${Object.values(edu)[1]}</div>
             </div>
@@ -95,7 +100,7 @@ async function fetchDoctorsData() {
 
 fetchDoctorsData();
 
-// ***************** API to verify or deny doctor data *****************
+// ** API POST req depending on button click to verify or deny doctors data **
 
 async function verifyDoctorsData(action_value) {
   try {
@@ -115,7 +120,7 @@ async function verifyDoctorsData(action_value) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          track_id: "3652116811938886434fba0ec9ed",
+          track_id: "65124168127235264362e20b3aec",
           action: `${action_value}`,
         }),
       }
@@ -128,8 +133,6 @@ async function verifyDoctorsData(action_value) {
     console.error(error);
   }
 }
-
-// verifyDoctorsData();
 
 let action_value = 0;
 
