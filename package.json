@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/drcount-root/PostPic-WEBDC-5936#readme",
   "dependencies": {
-    "bcryptjs": "^2.4.3"
-  }
+    "bcrypt": "^5.1.0"
+  },
+  "type": "module"
 }

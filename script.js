@@ -20,22 +20,19 @@ window.onclick = function (event) {
 
 // ******* GET Doctor's Educational Data In Array Of Objects Format *******
 
-// import bcrypt from 'bcryptjs';
-// const bcrypt =require('bcryptjs');
+// track id
+
+const trackId = window.location.search.slice(9);
+// const trackId = "856971680175575642571d774180";
+
+console.log(trackId)
+
+// import bcrypt from 'bcrypt';
+// const bcrypt
 
 // const hashKey = 'tVbC5agTaQ5YmXraq';
 // const rounds = 10;
 
-// const bcryptedHashKey = bcrypt.hash(hashKey, rounds, (err, hash) => {
-//   if(err){
-//     console.error(err);
-//     return
-//   }
-
-//   console.log(hash);
-// })
-
-// console.log(bcryptedHashKey);
 
 async function fetchDoctorsData() {
   try {
@@ -56,7 +53,7 @@ async function fetchDoctorsData() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          track_id: "2222316789566296412d89435a74",
+          track_id: `${trackId}`,
         }),
       }
     );
@@ -268,7 +265,7 @@ async function verifyDoctorsData(action_value) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          track_id: "5006168121950664355fb2adb33",
+          track_id: `${trackId}`,
           action: `${action_value}`,
         }),
       }
