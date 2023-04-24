@@ -39,7 +39,7 @@ async function fetchDoctorsData() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          track_id: "153731681220645643564261f7d3",
+          track_id: "2222316789566296412d89435a74",
         }),
       }
     );
@@ -55,38 +55,169 @@ async function fetchDoctorsData() {
     for (let i = 0; i < doctorsData.length; i++) {
       const edu = doctorsData[i];
 
-      const deg = !Object.keys(edu)[0] ? 'display: none' : 'display: block';
-      const inst = !Object.keys(edu)[1] ? 'display: none' : 'display: block';
+      const deg1 = !Object.keys(edu)[0] ? "display: none" : "display: block";
+      const lvl1 = !Object.keys(edu)[1] ? "display: none" : "display: block";
+      const inst1 = !Object.keys(edu)[2] ? "display: none" : "display: block";
+      const yoc1 = !Object.keys(edu)[3] ? "display: none" : "display: block";
 
-      // const lvl = !Object.keys(edu)[1] ? 'display: none' : 'display: block';
+      const deg2 = !Object.keys(edu)[4] ? "display: none" : "display: block";
+      const lvl2 = !Object.keys(edu)[5] ? "display: none" : "display: block";
+      const inst2 = !Object.keys(edu)[6] ? "display: none" : "display: block";
+      const yoc2 = !Object.keys(edu)[7] ? "display: none" : "display: block";
+
+      const deg3 = !Object.keys(edu)[8] ? "display: none" : "display: block";
+      const lvl3 = !Object.keys(edu)[9] ? "display: none" : "display: block";
+      const inst3 = !Object.keys(edu)[10] ? "display: none" : "display: block";
+      const yoc3 = !Object.keys(edu)[11] ? "display: none" : "display: block";
+
+      const deg4 = !Object.keys(edu)[12] ? "display: none" : "display: block";
+      const lvl4 = !Object.keys(edu)[13] ? "display: none" : "display: block";
+      const inst4 = !Object.keys(edu)[14] ? "display: none" : "display: block";
+      const yoc4 = !Object.keys(edu)[15] ? "display: none" : "display: block";
+
+      const deg5 = !Object.keys(edu)[16] ? "display: none" : "display: block";
+      const lvl5 = !Object.keys(edu)[17] ? "display: none" : "display: block";
+      const inst5 = !Object.keys(edu)[18] ? "display: none" : "display: block";
+      const yoc5 = !Object.keys(edu)[19] ? "display: none" : "display: block";
+
+      console.log(Object.keys(edu));
 
       if (doctorsData.length >= 1) {
         const html = `
-        <div class="edu">
-              <span><img src="./assets/CME Credits.svg" /></span>
-              <span>Education ${i + 1}</span>
-        </div>
+        
         <div class="dividers">
-            <div style="${deg}">
-                <div class="tag degree_label">${Object.keys(edu)[0]}</div>
+            <div class="edu">
+                  <span><img src="./assets/CME Credits.svg" /></span>
+                  <span>Education ${i + 1}</span>
+            </div>
+            <div style="${deg1}">
+                <div class="tag">${Object.keys(edu)[0]}</div>
                 <div class="tag_content degree">
                     ${Object.values(edu)[0]}
                 </div>
             </div>
 
-            <div>
-                <div class="tag">Level of Degree</div>
-                <div class="tag_content level">Add Level of Degree</div>
-            </div>
-
-            <div style="${inst}">
+            <div style="${lvl1}">
                 <div class="tag">${Object.keys(edu)[1]}</div>
-                <div class="tag_content inst">${Object.values(edu)[1]}</div>
+                <div class="tag_content level">${Object.values(edu)[1]}</div>
             </div>
 
-            <div>
-                <div class="tag">Year Of Complition</div>
-                <div class="tag_content yoc">2012 - 2016</div>
+            <div style="${inst1}">
+                <div class="tag">${Object.keys(edu)[2]}</div>
+                <div class="tag_content inst">${Object.values(edu)[2]}</div>
+            </div>
+
+            <div style="${yoc1}">
+                <div class="tag">${Object.keys(edu)[3]}</div>
+                <div class="tag_content yoc">${Object.values(edu)[3]}</div>
+            </div>
+
+            <div class="edu" style="${deg2}">
+              <span><img src="./assets/CME Credits.svg" /></span>
+              <span>Education 2</span>
+            </div>
+
+            <div style="${deg2}">
+                <div class="tag">${Object.keys(edu)[4]}</div>
+                <div class="tag_content degree">
+                    ${Object.values(edu)[4]}
+                </div>
+            </div>
+
+            <div style="${lvl2}">
+                <div class="tag">${Object.keys(edu)[5]}</div>
+                <div class="tag_content level">${Object.values(edu)[5]}</div>
+            </div>
+
+            <div style="${inst2}">
+                <div class="tag">${Object.keys(edu)[6]}</div>
+                <div class="tag_content inst">${Object.values(edu)[6]}</div>
+            </div>
+
+            <div style="${yoc2}">
+                <div class="tag">${Object.keys(edu)[7]}</div>
+                <div class="tag_content yoc">${Object.values(edu)[7]}</div>
+            </div>
+
+            <div class="edu" style="${deg3}">
+              <span><img src="./assets/CME Credits.svg" /></span>
+              <span>Education 3</span>
+            </div>
+
+            <div style="${deg3}">
+                <div class="tag">${Object.keys(edu)[8]}</div>
+                <div class="tag_content degree">
+                    ${Object.values(edu)[8]}
+                </div>
+            </div>
+
+            <div style="${lvl3}">
+                <div class="tag">${Object.keys(edu)[9]}</div>
+                <div class="tag_content level">${Object.values(edu)[9]}</div>
+            </div>
+
+            <div style="${inst3}">
+                <div class="tag">${Object.keys(edu)[10]}</div>
+                <div class="tag_content inst">${Object.values(edu)[10]}</div>
+            </div>
+
+            <div style="${yoc3}">
+                <div class="tag">${Object.keys(edu)[11]}</div>
+                <div class="tag_content yoc">${Object.values(edu)[11]}</div>
+            </div>
+
+            <div class="edu" style="${deg4}">
+              <span><img src="./assets/CME Credits.svg" /></span>
+              <span>Education 4</span>
+            </div>
+
+            <div style="${deg4}">
+                <div class="tag">${Object.keys(edu)[12]}</div>
+                <div class="tag_content degree">
+                    ${Object.values(edu)[12]}
+                </div>
+            </div>
+
+            <div style="${lvl4}">
+                <div class="tag">${Object.keys(edu)[13]}</div>
+                <div class="tag_content level">${Object.values(edu)[13]}</div>
+            </div>
+
+            <div style="${inst4}">
+                <div class="tag">${Object.keys(edu)[14]}</div>
+                <div class="tag_content inst">${Object.values(edu)[14]}</div>
+            </div>
+
+            <div style="${yoc4}">
+                <div class="tag">${Object.keys(edu)[15]}</div>
+                <div class="tag_content yoc">${Object.values(edu)[15]}</div>
+            </div>
+
+            <div class="edu" style="${deg5}">
+              <span><img src="./assets/CME Credits.svg" /></span>
+              <span>Education 5</span>
+            </div>
+
+            <div style="${deg5}">
+                <div class="tag">${Object.keys(edu)[16]}</div>
+                <div class="tag_content degree">
+                    ${Object.values(edu)[16]}
+                </div>
+            </div>
+
+            <div style="${lvl5}">
+                <div class="tag">${Object.keys(edu)[17]}</div>
+                <div class="tag_content level">${Object.values(edu)[17]}</div>
+            </div>
+
+            <div style="${inst5}">
+                <div class="tag">${Object.keys(edu)[18]}</div>
+                <div class="tag_content inst">${Object.values(edu)[18]}</div>
+            </div>
+
+            <div style="${yoc5}">
+                <div class="tag">${Object.keys(edu)[19]}</div>
+                <div class="tag_content yoc">${Object.values(edu)[19]}</div>
             </div>
         </div>
           `;
@@ -120,7 +251,7 @@ async function verifyDoctorsData(action_value) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          track_id: "65124168127235264362e20b3aec",
+          track_id: "5006168121950664355fb2adb33",
           action: `${action_value}`,
         }),
       }
@@ -139,18 +270,17 @@ let action_value = 0;
 const noButton = document.getElementsByClassName("button_white");
 const yesButton = document.getElementsByClassName("button_black");
 
-function noButtonClicked () {
+function noButtonClicked() {
   action_value = 0;
   console.log(action_value);
   verifyDoctorsData(action_value);
-};
+}
 
 function yesButtonClicked() {
   action_value = 1;
   console.log(action_value);
   verifyDoctorsData(action_value);
-};
-
+}
 
 //
 //

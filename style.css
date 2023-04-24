@@ -1,6 +1,25 @@
 * {
   box-sizing: border-box;
   font-family: "Lexend Deca", sans-serif;
+
+  /* scrollbar style for firefox */
+  scrollbar-width: thin;
+  scrollbar-color: rgb(179, 179, 185) rgb(0, 0, 0);
+}
+
+/* scrollbar style for chrome, edge & safari */
+
+*::-webkit-scrollbar{
+  width: 3px;
+}
+
+*::-webkit-scrollbar-track{
+  background: rgb(207, 207, 207);
+}
+
+*::-webkit-scrollbar-thumb{
+  background-color: rgb(0, 0, 0);
+  border: 1px solid rgb(0, 0, 0);
 }
 
 .modal {
@@ -63,13 +82,18 @@
   align-items: center;
   font-weight: 300;
   font-size: 14px;
-  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 2px;
 }
 
 .dividers {
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  /* scrollbar */
+  height: 150px;
+  overflow-y: scroll;
 }
 
 .tag {
