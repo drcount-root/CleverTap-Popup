@@ -20,6 +20,23 @@ window.onclick = function (event) {
 
 // ******* GET Doctor's Educational Data In Array Of Objects Format *******
 
+// import bcrypt from 'bcryptjs';
+// const bcrypt =require('bcryptjs');
+
+// const hashKey = 'tVbC5agTaQ5YmXraq';
+// const rounds = 10;
+
+// const bcryptedHashKey = bcrypt.hash(hashKey, rounds, (err, hash) => {
+//   if(err){
+//     console.error(err);
+//     return
+//   }
+
+//   console.log(hash);
+// })
+
+// console.log(bcryptedHashKey);
+
 async function fetchDoctorsData() {
   try {
     const response = await fetch(
