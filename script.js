@@ -27,12 +27,18 @@ const trackId = window.location.search.slice(9);
 
 console.log(trackId)
 
-// import bcrypt from 'bcrypt';
-// const bcrypt
+const hashKey = 'tVbC5agTaQ5YmXraq';
+const rounds = 10;
 
-// const hashKey = 'tVbC5agTaQ5YmXraq';
-// const rounds = 10;
+// const bcrypt = require("./bcrypt");
+// import bcrypt from "./bcrypt";
+// let bcrypt;
 
+// bcrypt.genSalt(rounds, (err, salt) => {
+//     bcrypt.hash(hashKey, salt, (err, hash) => {
+//     console.log(hash);
+//   })
+// })
 
 async function fetchDoctorsData() {
   try {
