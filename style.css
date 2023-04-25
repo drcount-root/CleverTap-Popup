@@ -4,22 +4,22 @@
 
   /* scrollbar style for firefox */
   scrollbar-width: thin;
-  scrollbar-color: rgb(179, 179, 185) rgb(0, 0, 0);
+  scrollbar-color: rgb(179, 179, 185) rgb(92, 92, 92);
 }
 
 /* scrollbar style for chrome, edge & safari */
 
-*::-webkit-scrollbar{
+*::-webkit-scrollbar {
   width: 3px;
 }
 
-*::-webkit-scrollbar-track{
+*::-webkit-scrollbar-track {
   background: rgb(207, 207, 207);
 }
 
-*::-webkit-scrollbar-thumb{
-  background-color: rgb(0, 0, 0);
-  border: 1px solid rgb(0, 0, 0);
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(101, 101, 101);
+  border: 1px solid rgb(92, 92, 92);
 }
 
 .modal {
