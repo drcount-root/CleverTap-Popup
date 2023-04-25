@@ -4,7 +4,7 @@
 
   /* scrollbar style for firefox */
   scrollbar-width: thin;
-  scrollbar-color: rgb(179, 179, 185) rgb(92, 92, 92);
+  scrollbar-color: #ffe9e7 rgb(182, 182, 182);
 }
 
 /* scrollbar style for chrome, edge & safari */
@@ -14,12 +14,12 @@
 }
 
 *::-webkit-scrollbar-track {
-  background: rgb(207, 207, 207);
+  background: #ffe9e7;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: rgb(101, 101, 101);
-  border: 1px solid rgb(92, 92, 92);
+  background-color: rgb(182, 182, 182);
+  border: 1px solid rgb(182, 182, 182);
 }
 
 .modal {
@@ -77,13 +77,7 @@
 }
 
 .edu {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  font-weight: 300;
-  font-size: 14px;
-  margin-top: 5px;
-  margin-bottom: 2px;
+  margin: 2px 0;
 }
 
 .dividers {

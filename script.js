@@ -1,3 +1,5 @@
+// console.log(location.hostname);
+
 // ************** Modal Functionality **************
 
 const openModal = document.getElementById("open-modal");
@@ -25,14 +27,14 @@ openModal.onload = function () {
 const trackId = window.location.search.slice(9);
 // 36514167930585464182c7e94fa9
 
-const hashKey = "tVbC5agTaQ5YmXraq";
+// const hashKey = "tVbC5agTaQ5YmXraq";
 const rounds = 10;
 
 let hashedKey;
 
 function crypt() {
-  const hashKey = "tVbC5agTaQ5YmXraq";
-  const salt = "$2a$08$b0MHMsT3ErLoTRjpjzsCie";
+  // const hashKey = "tVbC5agTaQ5YmXraq";
+  // const salt = "$2a$08$b0MHMsT3ErLoTRjpjzsCie";
 
   hashpw(hashKey, salt, (newhash) => {
     hashedKey = newhash;
@@ -48,28 +50,28 @@ crypt();
 const hass = sessionStorage.getItem("hashedKey");
 console.log(hass);
 
+let apiUrl =
+  location.hostname === "docquity.com" ? PROD_BASE_URL : DEV_BASE_URL;
+
 async function fetchDoctorsData(hass) {
   try {
-    const response = await fetch(
-      "https://dnestapi.docquity.com/4.3/profile-verification",
-      {
-        method: "POST",
-        headers: {
-          accept: "*/*",
-          udid: "1234",
-          lang: "en",
-          ver: "4.3",
-          version: "4.3",
-          devicetype: "web",
-          appversion: "123",
-          hashKey: `${hass}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          track_id: `${trackId}`,
-        }),
-      }
-    );
+    const response = await fetch(apiUrl + "/profile-verification", {
+      method: "POST",
+      headers: {
+        accept: "*/*",
+        udid: "1234",
+        lang: "en",
+        ver: "4.3",
+        version: "4.3",
+        devicetype: "web",
+        appversion: "123",
+        hashKey: `${hass}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        track_id: `${trackId}`,
+      }),
+    });
 
     const data = await response.json();
 
@@ -113,10 +115,7 @@ async function fetchDoctorsData(hass) {
         const html = `
 
         <div class="dividers">
-            <div class="edu">
-                  <span><img src="./assets/CME Credits.svg" /></span>
-                  <span>Education ${i + 1}</span>
-            </div>
+            
             <div style="${deg1}">
                 <div class="tag">${Object.keys(edu)[0]}</div>
                 <div class="tag_content degree">
@@ -139,10 +138,7 @@ async function fetchDoctorsData(hass) {
                 <div class="tag_content yoc">${Object.values(edu)[3]}</div>
             </div>
 
-            <div class="edu" style="${deg2}">
-              <span><img src="./assets/CME Credits.svg" /></span>
-              <span>Education 2</span>
-            </div>
+            <div class="edu"></div>
 
             <div style="${deg2}">
                 <div class="tag">${Object.keys(edu)[4]}</div>
@@ -166,10 +162,7 @@ async function fetchDoctorsData(hass) {
                 <div class="tag_content yoc">${Object.values(edu)[7]}</div>
             </div>
 
-            <div class="edu" style="${deg3}">
-              <span><img src="./assets/CME Credits.svg" /></span>
-              <span>Education 3</span>
-            </div>
+            <div class="edu"></div>
 
             <div style="${deg3}">
                 <div class="tag">${Object.keys(edu)[8]}</div>
@@ -193,10 +186,7 @@ async function fetchDoctorsData(hass) {
                 <div class="tag_content yoc">${Object.values(edu)[11]}</div>
             </div>
 
-            <div class="edu" style="${deg4}">
-              <span><img src="./assets/CME Credits.svg" /></span>
-              <span>Education 4</span>
-            </div>
+            <div class="edu"></div>
 
             <div style="${deg4}">
                 <div class="tag">${Object.keys(edu)[12]}</div>
@@ -220,10 +210,7 @@ async function fetchDoctorsData(hass) {
                 <div class="tag_content yoc">${Object.values(edu)[15]}</div>
             </div>
 
-            <div class="edu" style="${deg5}">
-              <span><img src="./assets/CME Credits.svg" /></span>
-              <span>Education 5</span>
-            </div>
+            <div class="edu"></div>
 
             <div style="${deg5}">
                 <div class="tag">${Object.keys(edu)[16]}</div>
@@ -262,26 +249,23 @@ fetchDoctorsData(hass);
 
 async function verifyDoctorsData(action_value) {
   try {
-    const response = await fetch(
-      "https://dnestapi.docquity.com/4.3/profile-verification/action",
-      {
-        method: "POST",
-        headers: {
-          accept: "*/*",
-          udid: "1234",
-          lang: "en",
-          ver: "4.3",
-          devicetype: "web",
-          appversion: "123",
-          hashKey: `${hass}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          track_id: `${trackId}`,
-          action: `${action_value}`,
-        }),
-      }
-    );
+    const response = await fetch(apiUrl + "/profile-verification/action", {
+      method: "POST",
+      headers: {
+        accept: "*/*",
+        udid: "1234",
+        lang: "en",
+        ver: "4.3",
+        devicetype: "web",
+        appversion: "123",
+        hashKey: `${hass}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        track_id: `${trackId}`,
+        action: `${action_value}`,
+      }),
+    });
 
     const data = await response.json();
     if (data.msg == "Success.") console.log("Checked");
