@@ -38,7 +38,7 @@ function crypt() {
 
   hashpw(hashKey, salt, (newhash) => {
     hashedKey = newhash;
-    console.log(hashedKey);
+    // console.log(hashedKey);
 
     // set hashedKey into session storage
     sessionStorage.setItem("hashedKey", hashedKey);
@@ -48,10 +48,12 @@ function crypt() {
 crypt();
 
 const hass = sessionStorage.getItem("hashedKey");
-console.log(hass);
+// console.log(hass);
 
 let apiUrl =
-  location.hostname === "docquity.com" ? PROD_BASE_URL : DEV_BASE_URL;
+  location.hostname === 'docquity.com' ? PROD_BASE_URL : DEV_BASE_URL;
+
+const container = document.getElementById("edu_container");
 
 async function fetchDoctorsData(hass) {
   try {
@@ -77,9 +79,7 @@ async function fetchDoctorsData(hass) {
 
     const doctorsData = [data.data];
 
-    console.log(doctorsData);
-
-    const container = document.getElementById("edu_container");
+    // console.log(doctorsData);
 
     for (let i = 0; i < doctorsData.length; i++) {
       const edu = doctorsData[i];
@@ -109,7 +109,7 @@ async function fetchDoctorsData(hass) {
       const inst5 = !Object.keys(edu)[18] ? "display: none" : "display: block";
       const yoc5 = !Object.keys(edu)[19] ? "display: none" : "display: block";
 
-      console.log(Object.keys(edu));
+      // console.log(Object.keys(edu));
 
       if (doctorsData.length >= 1) {
         const html = `
@@ -239,7 +239,15 @@ async function fetchDoctorsData(hass) {
       }
     }
   } catch (error) {
-    console.error(error);
+    // console.error(error);
+    if (error) {
+      const modal = document.getElementById("modal")
+      modal.innerHTML = `
+        <div class="modal_content">
+          <div class="err_msg">Record Not Found</div>
+        </div>
+      `;
+    }
   }
 }
 
