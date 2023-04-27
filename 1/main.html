@@ -944,19 +944,22 @@
       function crypt() {
         // const hashKey = "tVbC5agTaQ5YmXraq";
         // const salt = "$2a$08$b0MHMsT3ErLoTRjpjzsCie";
-
+let hass = '';
+console.log('jjhjbh');
         hashpw(hashKey, salt, (newhash) => {
           hashedKey = newhash;
           // console.log(hashedKey);
 
           // set hashedKey into session storage
-          sessionStorage.setItem("hashedKey", hashedKey);
+          const a = sessionStorage.setItem("hashedKey", hashedKey);
+          console.log('jjhjbh', a);
+          hass = sessionStorage.getItem("hashedKey");
+          console.log('hass', hass);
         });
       }
 
       crypt();
 
-      const hass = sessionStorage.getItem("hashedKey");
       // console.log(hass);
 
       let apiUrl =
