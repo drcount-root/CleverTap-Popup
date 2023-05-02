@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="./style.css" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./style.css">
+
+    <title>Document</title>
+  </head>
+  <body onload="crypt()">
+    <div id="open-modal"></div>
+
+    <div id="modal" class="modal">
+      <div class="modal_content">
+        <div class="icon_class">
+          <img
+            class="cme_credits"
+            src="https://s3.ap-southeast-1.amazonaws.com/bucket.docquity.com/profile-data-verification/credits-image.svg"
+          />
+        </div>
+
+        <p class="heading">
+          Please help us verify these details about your Educational background.
+        </p>
+
+        <div class="colored">
+          <div class="add_education">
+            <div id="edu_container"></div>
+          </div>
+
+          <div class="buttons">
+            <button class="button button_white" onclick="noButtonClicked()">
+              No
+            </button>
+            <button class="button button_black" onclick="yesButtonClicked()">
+              Yes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./bcrypt.js"></script>
+
+    <script>
+      const STATUS = "development";
+      const hashKey = "tVbC5agTaQ5YmXraq";
+      const salt = "$2a$08$b0MHMsT3ErLoTRjpjzsCie";
+      const DEV_BASE_URL = "https://dnestapi.docquity.com/4.3";
+      const PROD_BASE_URL = "https://nestapi.docquity.com/4.3";
+    </script>
+
+    <script src="./script.js"></script>
+
+    <!-- <script src="./loader.js"></script> -->
+  </body>
+</html>
