@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;500;600&family=Manrope:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <!-- <body onload="crypt()"> -->
+  <body>
+    <div class="modal d-block p-5">
+      <div class="modal-content" style="margin: 0 auto">
+        <div class="d-flex flex-column">
+          <img
+            src="./assets/Group 48098561.png"
+            width="40px"
+            style="
+              background-color: #b1cbcf15;
+              border-radius: 25px;
+              margin: 20px;
+            "
+          />
+          <p style="font-weight: 500; font-size: 18px; padding: 0 15px">
+            Please help us verify these details about your Professional
+            background.
+          </p>
+        </div>
+        <div class="rounded-bottom-3">
+          <div class="modal-body d-flex flex-column gap-3" style="height: 200px; overflow-y: scroll;"></div>
+          <div class="modal-footer justify-content-between" style="border: 0px">
+            <button
+              class="btn"
+              style="
+                border-radius: 12px;
+                border: 1px solid #dc1313;
+                padding: 8px;
+                cursor: pointer;
+                background: #ffffff;
+                width: 46%;
+                color: #dc1313;
+                font-family: Manrope, sans-serif;
+                font-size: 15px;
+              "
+              onclick="noButtonClicked()"
+            >
+              No
+            </button>
+            <button
+              class="btn"
+              style="
+                color: white;
+                width: 46%;
+                border-radius: 12px;
+                border: 1px solid #444242;
+                padding: 8px;
+                cursor: pointer;
+                background: linear-gradient(
+                  94.21deg,
+                  #252424 4.48%,
+                  #252424 4.49%,
+                  #424242 87.94%
+                );
+                box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+                font-family: Manrope, sans-serif;
+                font-size: 15px;
+              "
+              onclick="yesButtonClicked()"
+            >
+              Yes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://docquity-app-prod.s3.ap-southeast-1.amazonaws.com/clevertap-profile-data-verification/bcrypt.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./dummy-data.js"></script>
+    <script src="./dummy-script.js"></script>
+    <!-- <script src="./script.js"></script> -->
+  </body>
+</html>

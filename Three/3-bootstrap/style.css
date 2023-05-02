@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+  font-family: "Lexend Deca", sans-serif;
+
+  /* scrollbar style for firefox */
+  scrollbar-width: 3px;
+  scrollbar-color: rgb(128, 128, 128) #ffffff;
+}
+
+/* scrollbar style for chrome, edge & safari */
+
+*::-webkit-scrollbar {
+  width: 3px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(182, 182, 182);
+  border: 1px solid rgb(182, 182, 182);
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.tag {
+    font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #737171;
+}
+
+.tag_content {
+  color: #1d1919;
+  font-size: 14px;
+  font-weight: 500;
+}
