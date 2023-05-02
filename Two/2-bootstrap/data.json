@@ -1,0 +1,77 @@
+{
+  "Education1":{
+    "Degree": "BACHELOR OF MEDICINE & BACHELOR OF SURGERY MBBS",
+    "Level Of Degree": "Basic Degree",
+    "Degree Awarding Institute": "MANIPAL ACADEMY OF HIGHER EDUCATION, MELAKA-MANIPAL MEDICAL COLLEGE MALAYSIA",
+    "Year Of Complition": "2005"
+  },
+  "Education2":{
+    "Degree": "MASTER OF BUSINESS ADMINISTRATION",
+    "Level Of Degree": "Postgraduate Degree",
+    "Degree Awarding Institute": "INSEAD",
+    "Year Of Complition": "2019"
+  },
+  "Education3":{
+    "Degree": "DOCTOR OF PHILOSOPHY IN BIOLOGY",
+    "Level Of Degree": "Doctorate Degree",
+    "Degree Awarding Institute": "UNIVERSITY OF CALIFORNIA, BERKELEY",
+    "Year Of Complition": "2016"
+  },
+  "Education4":{
+    "Degree": "BACHELOR OF ARTS IN PSYCHOLOGY",
+    "Level Of Degree": "Basic Degree",
+    "Degree Awarding Institute": "UNIVERSITY OF TORONTO",
+    "Year Of Complition": "2010"
+  },
+  "Education5":{
+    "Degree": "MASTER OF SCIENCE IN ELECTRICAL ENGINEERING",
+    "Level Of Degree": "Postgraduate Degree",
+    "Degree Awarding Institute": "MASSACHUSETTS INSTITUTE OF TECHNOLOGY",
+    "Year Of Complition": "2015"
+  }
+}
+
+[
+    {
+        "key":"Education1",
+        "value":[
+            {
+                "key":"Degree",
+                "value":"BACHELOR OF MEDICINE & BACHELOR OF SURGERY MBBS"
+            },
+            {
+                "key":"Level Of Degree",
+                "value":"Basic Degree"
+            },
+            {
+                "key":"Degree Awarding Institute",
+                "value":"UNIVERSITY OF CALIFORNIA, BERKELEY"
+            },
+            {
+                "key":"Year Of Complition",
+                "value":"2015"
+            }
+        ]
+    },
+    {
+        "key":"Education2",
+        "value":[
+            {
+                "key":"Degree",
+                "value":"BACHELOR OF MEDICINE & BACHELOR OF SURGERY MBBS"
+            },
+            {
+                "key":"Level Of Degree",
+                "value":"Basic Degree"
+            },
+            {
+                "key":"Degree Awarding Institute",
+                "value":"UNIVERSITY OF CALIFORNIA, BERKELEY"
+            },
+            {
+                "key":"Year Of Complition",
+                "value":"2015"
+            }
+        ]
+    }
+]
