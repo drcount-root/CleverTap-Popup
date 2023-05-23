@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> </title>
+  </head>
+  <body class="main_container" onload="myFunction()">
+    <div
+      id="actionTaken"
+      style="
+        display: flex;
+        justify-content: center;
+        background-color: white;
+        padding: 0px;
+      "
+    ></div>
+    <div id="heading" style="padding: 10px"></div>
+    <div
+      id="content"
+      style="
+        display: flex;
+        flex-direction: column;
+        font-family: sans-serif;
+        padding: 10px;
+      "
+    ></div>
+    <div
+      id="buttons"
+      style="padding: 10px; display: flex; justify-content: space-between"
+    ></div>
+  </body>
+
+  <script>
+    const apiUrl = "https://dnestapi.docquity.com/4.3";
+    const statHash =
+      "$2a$10$EcoVdBqHGBydROaqoZRVj.WK6QjWFvC0JiODwWr8wRgBz.zNNPXMC";
+    const trackId = "819501667984314636b6bba32512";
+
+    function noButtonClicked() {
+      action_value = 0;
+      document.querySelector(".main_container").style.display = "none";
+      verifyDoctorsData(action_value);
+      window.location.href='https://docquity.app.link/1F21XcTCuzb';
+    }
+    
+    function yesButtonClicked() {
+      action_value = 1;
+      document.querySelector(".main_container").style.display = "none";
+      verifyDoctorsData(action_value);
+      window.location.href='https://docquity.app.link/ewFvxY5Duzb';
+    }
+
+    async function verifyDoctorsData(action_value) {
+      try {
+        const response = await fetch(apiUrl + "/profile-verification/action", {
+          method: "POST",
+          headers: {
+            accept: "*/*",
+            udid: "1234",
+            lang: "en",
+            ver: "4.3",
+            devicetype: "web",
+            appversion: "123",
+            hashKey: `${statHash}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            track_id: `${trackId}`,
+            action: `${action_value}`,
+          }),
+        });
+        const data = await response.json();
+        if (data.msg == "Success.") console.log("Checked");
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    async function myFunction() {
+      const response = await fetch(apiUrl + "/profile-verification", {
+        method: "POST",
+        headers: {
+          accept: "*/*",
+          udid: "1234",
+          lang: "en",
+          ver: "4.3",
+          version: "4.3",
+          devicetype: "web",
+          appversion: "123",
+          hashKey: `${statHash}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ track_id: `${trackId}` }),
+      });
+
+      const data = await response.json();
+
+      document.getElementById(
+        "heading"
+      ).innerHTML += `<p style="font-size: 18px; font-weight: 500">Please help us verify these details about your Educational background.</p>`;
+
+      document.getElementById(
+        "buttons"
+      ).innerHTML += `<button style="border-radius: 8px; color: black; background-color: #ffffff; border: 1px solid #787878; padding: 12px 35px; font-size: 15px; width: 49%;" onclick="noButtonClicked()">No</button><button style="border-radius: 8px; color: #ffffff; background: linear-gradient(94.21deg,#252424 4.48%,#252424 4.49%,#424242 87.94%); border: 1px solid #787878; padding: 12px 35px; font-size: 15px; width: 49%;" onclick="yesButtonClicked()">Yes</button>`;
+
+      if (data.data == null && data['error'].msg == "Action Already Taken") {
+        document.getElementById("heading").style.display = "none";
+        document.getElementById("buttons").style.display = "none";
+        document.getElementById(
+          "actionTaken"
+        ).innerHTML = `<div style="padding: 20px 0">Action Already Taken</div>`;
+      }
+
+      if (data.data == null && data['error'].msg == "Record Not Found") {
+        document.getElementById("heading").style.display = "none";
+        document.getElementById("buttons").style.display = "none";
+        document.getElementById(
+          "actionTaken"
+        ).innerHTML = `<div style="padding: 20px 0">Record Not Found</div>`;
+      }
+
+      for (const [key, value] of Object.entries(data.data)) {
+        document.getElementById("heading").style.backgroundColor = "#FFFFFF";
+        document.getElementById("content").style.backgroundColor = "#FFE9E7";
+        document.getElementById("content").style.height = "320px";
+        document.getElementById("content").style.overflowY = "scroll";
+
+        document.getElementById(
+          "content"
+        ).innerHTML += `<span style="font-size: 14px; color: #737171;">${key}</span><span style="font-size: 16px; color: #1D1919">${value}</span><br>`;
+
+        document.getElementById("buttons").style.backgroundColor = "#FFE9E7";
+      }
+    }
+  </script>
+</html>

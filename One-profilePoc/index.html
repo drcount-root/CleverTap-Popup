@@ -32,26 +32,21 @@
   <script>
     const apiUrl = "https://dnestapi.docquity.com/4.3";
     const statHash =
-      "$2a$10$YBsFGV0wrLmNPc9tD4Y6HeSmfzuS0zPvNkh7vDM4dMibQvqJiUS62";
-    const trackId = '@Profile - Identity | default: "70009167411130863c8e94c45ac3"';
-
-    // const trackId = "982635bbb028372396"; // record not found
-    // const trackId = "65402167766141063ff14e2b9f42"; //visible
-    // const trackId = "106811678860437641160962c70f"; // action already taken
-
-    let action_value = 0;
+      "$2a$10$EcoVdBqHGBydROaqoZRVj.WK6QjWFvC0JiODwWr8wRgBz.zNNPXMC";
+    const trackId = "819501667984314636b6bba32512";
 
     function noButtonClicked() {
       action_value = 0;
       document.querySelector(".main_container").style.display = "none";
       verifyDoctorsData(action_value);
+      window.location.href='https://docquity.app.link/1F21XcTCuzb';
     }
-
+    
     function yesButtonClicked() {
       action_value = 1;
-      console.log(action_value);
       document.querySelector(".main_container").style.display = "none";
       verifyDoctorsData(action_value);
+      window.location.href='https://docquity.app.link/ewFvxY5Duzb';
     }
 
     async function verifyDoctorsData(action_value) {
@@ -107,7 +102,7 @@
         "buttons"
       ).innerHTML += `<button style="border-radius: 8px; color: black; background-color: #ffffff; border: 1px solid #787878; padding: 12px 35px; font-size: 15px; width: 49%;" onclick="noButtonClicked()">No</button><button style="border-radius: 8px; color: #ffffff; background: linear-gradient(94.21deg,#252424 4.48%,#252424 4.49%,#424242 87.94%); border: 1px solid #787878; padding: 12px 35px; font-size: 15px; width: 49%;" onclick="yesButtonClicked()">Yes</button>`;
 
-      if (data.data == null && data.error.msg == "Action Already Taken") {
+      if (data.data == null && data['error'].msg == "Action Already Taken") {
         document.getElementById("heading").style.display = "none";
         document.getElementById("buttons").style.display = "none";
         document.getElementById(
@@ -115,7 +110,7 @@
         ).innerHTML = `<div style="padding: 20px 0">Action Already Taken</div>`;
       }
 
-      if (data.data == null && data.error.msg == "Record Not Found") {
+      if (data.data == null && data['error'].msg == "Record Not Found") {
         document.getElementById("heading").style.display = "none";
         document.getElementById("buttons").style.display = "none";
         document.getElementById(
