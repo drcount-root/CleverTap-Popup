@@ -1,0 +1,513 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .education-section {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 0px 0px 0px;
+        margin-bottom: 10px;
+        background-color: #C9C9C9;
+        border-radius: 8px;
+        border: 1px solid #c9c9c9;
+      }
+
+      .education-section p {
+        margin: 1px 0;
+      }
+    </style>
+  </head>
+  <body
+    class="main_container"
+    style="font-family: sans-serif"
+    onload="executeOnLoadFunction()"
+  >
+    <!-- <div id="heading" style="padding: 10px"></div> -->
+    <div id="content" style="padding: 10px">
+      <div id="api_headings"></div>
+      <div id="ed_container">
+        <div
+          id="ed_container_details"
+          style="display: flex; flex-direction: column"
+        ></div>
+      </div>
+    </div>
+    <div
+      id="buttons"
+      style="
+        padding: 0px 10px 10px 10px;
+        display: flex;
+        justify-content: space-between;
+      "
+    ></div>
+    <script>
+      const apiUrl = "https://dnestapi.docquity.com/4.0";
+      const statHash = "tVbC5agTaQ5YmXraq";
+      const trackId = "11223621b8b66873e9";
+      const moduleType = "personalDetail";
+      let action_value = 0; 
+
+      function noButtonClicked() {
+        action_value = 0;
+        document.querySelector(".main_container").style.display = "none";
+        verifyDoctorsData(action_value);
+        window.location.href = "https://docquity.app.link/NqJjKbZDuzb";
+      }
+
+      function yesButtonClicked() {
+        action_value = 1;
+        document.querySelector(".main_container").style.display = "none";
+        verifyDoctorsData(action_value);
+        window.location.href = "https://docquity.app.link/ewFvxY5Duzb";
+      }
+
+      const edMockData = {
+        status: 1,
+        code: 1000,
+        msg: "Success.",
+        data: {
+          headingText:
+            "Unlock FREE Expert Academy Course Now - Hospital Infection Control",
+          subHeadingText: "Just verify your Education Details",
+          button: [
+            {
+              text: "Accept",
+              target: {
+                id: 0,
+                type: "accept",
+                url: "",
+              },
+            },
+            {
+              text: "Reject",
+              target: {
+                id: 0,
+                type: "reject",
+                url: "",
+              },
+            },
+          ],
+          data: [
+            {
+              id: 3858,
+              header: "Education 1",
+              data: [
+                {
+                  identifier: "Degree",
+                  title: "Degree",
+                  value: "deg 1",
+                },
+                {
+                  identifier: "DegreeType",
+                  title: "Type of Degree",
+                  value: "deg type 1",
+                },
+                {
+                  identifier: "University",
+                  title: "Institute",
+                  value: "Abulyatama Banda Aceh",
+                },
+                {
+                  identifier: "Field",
+                  title: "Field of Study",
+                  value: "field 1",
+                },
+                {
+                  identifier: "StartDate",
+                  title: "Start Date",
+                  value: "st date 1",
+                },
+                {
+                  identifier: "EndDate",
+                  title: "End Date",
+                  value: "end date 1",
+                },
+                {
+                  identifier: "Highlights",
+                  title: "Achievements",
+                  value: "ach 1",
+                },
+                {
+                  identifier: "Activities",
+                  title: "Activities",
+                  value: "acti 1",
+                },
+                {
+                  identifier: "Description",
+                  title: "Description",
+                  value: "desc test 1",
+                },
+              ],
+            },
+            {
+              id: 3858,
+              header: "Education 2",
+              data: [
+                {
+                  identifier: "Degree",
+                  title: "Degree",
+                  value: "deg 2",
+                },
+                {
+                  identifier: "DegreeType",
+                  title: "Type of Degree",
+                  value: "type 2",
+                },
+                {
+                  identifier: "University",
+                  title: "Institute",
+                  value: "Abulyatama Banda Aceh",
+                },
+                {
+                  identifier: "Field",
+                  title: "Field of Study",
+                  value: "field 2",
+                },
+                {
+                  identifier: "StartDate",
+                  title: "Start Date",
+                  value: "st date 2",
+                },
+                {
+                  identifier: "EndDate",
+                  title: "End Date",
+                  value: "end date 2",
+                },
+                {
+                  identifier: "Highlights",
+                  title: "Achievements",
+                  value: "achi 2",
+                },
+                {
+                  identifier: "Activities",
+                  title: "Activities",
+                  value: "acti 2",
+                },
+                {
+                  identifier: "Description",
+                  title: "Description",
+                  value: "desc 2",
+                },
+              ],
+            },
+            {
+              id: 3858,
+              header: "Education 3",
+              data: [
+                {
+                  identifier: "Degree",
+                  title: "Degree",
+                  value: "deg 3",
+                },
+                {
+                  identifier: "DegreeType",
+                  title: "Type of Degree",
+                  value: "type 3",
+                },
+                {
+                  identifier: "University",
+                  title: "Institute",
+                  value: "Abulyatama Banda Aceh",
+                },
+                {
+                  identifier: "Field",
+                  title: "Field of Study",
+                  value: "field 3",
+                },
+                {
+                  identifier: "StartDate",
+                  title: "Start Date",
+                  value: "st date 3",
+                },
+                {
+                  identifier: "EndDate",
+                  title: "End Date",
+                  value: "end date 3",
+                },
+                {
+                  identifier: "Highlights",
+                  title: "Achievements",
+                  value: "ach 3",
+                },
+                {
+                  identifier: "Activities",
+                  title: "Activities",
+                  value: "acti 3",
+                },
+                {
+                  identifier: "Description",
+                  title: "Description",
+                  value: "desc 3",
+                },
+              ],
+            },
+            {
+              id: 3858,
+              header: "Education 4",
+              data: [
+                {
+                  identifier: "Degree",
+                  title: "Degree",
+                  value: "deg 4",
+                },
+                {
+                  identifier: "DegreeType",
+                  title: "Type of Degree",
+                  value: "type 4",
+                },
+                {
+                  identifier: "University",
+                  title: "Institute",
+                  value: "Abulyatama Banda Aceh",
+                },
+                {
+                  identifier: "Field",
+                  title: "Field of Study",
+                  value: "field 4",
+                },
+                {
+                  identifier: "StartDate",
+                  title: "Start Date",
+                  value: "st date 4",
+                },
+                {
+                  identifier: "EndDate",
+                  title: "End Date",
+                  value: "end date 4",
+                },
+                {
+                  identifier: "Highlights",
+                  title: "Achievements",
+                  value: "ach 4",
+                },
+                {
+                  identifier: "Activities",
+                  title: "Activities",
+                  value: "acti 4",
+                },
+                {
+                  identifier: "Description",
+                  title: "Description",
+                  value: "desc 4",
+                },
+              ],
+            },
+            {
+              id: 3858,
+              header: "Education 5",
+              data: [
+                {
+                  identifier: "Degree",
+                  title: "Degree",
+                  value: "deg 5",
+                },
+                {
+                  identifier: "DegreeType",
+                  title: "Type of Degree",
+                  value: "type 5",
+                },
+                {
+                  identifier: "University",
+                  title: "Institute",
+                  value: "Abulyatama Banda Aceh",
+                },
+                {
+                  identifier: "Field",
+                  title: "Field of Study",
+                  value: "field 5",
+                },
+                {
+                  identifier: "StartDate",
+                  title: "Start Date",
+                  value: "st date 5",
+                },
+                {
+                  identifier: "EndDate",
+                  title: "End Date",
+                  value: "end date 5",
+                },
+                {
+                  identifier: "Highlights",
+                  title: "Achievements",
+                  value: "ach 5",
+                },
+                {
+                  identifier: "Activities",
+                  title: "Activities",
+                  value: "acti 5",
+                },
+                {
+                  identifier: "Description",
+                  title: "Description",
+                  value: "desc 5",
+                },
+              ],
+            },
+          ],
+        },
+        error: null,
+        action: null,
+        tooltips: [],
+      };
+
+      async function verifyDoctorsData(action_value) {
+        try {
+          const response = await fetch(
+            apiUrl + "/profile-verification/action",
+            {
+              method: "POST",
+              headers: {
+                accept: "*/*",
+                udid: "1234",
+                lang: "en",
+                ver: "4.3",
+                devicetype: "web",
+                appversion: "123",
+                hashKey: `${statHash}`,
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                track_id: `${trackId}`,
+                module: `${moduleType}`,
+                action: `${action_value}`,
+              }),
+            }
+          );
+          const data = await response.json();
+          if (data.msg == "Success.") console.log("Checked");
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      async function executeOnLoadFunction() {
+        // const data = edMockData;
+        const response = await fetch(apiUrl + "/profile-verification", {
+          method: "POST",
+          headers: {
+            accept: "*/*",
+            udid: "1234",
+            lang: "en",
+            ver: "4.3",
+            devicetype: "web",
+            appversion: "123",
+            hashKey: `${statHash}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            track_id: `${trackId}`,
+            module: `${moduleType}`,
+          }),
+        });
+        const data = await response.json();
+
+        if (data.data === null) {
+          //   document.getElementById("heading").style.display = "none";
+          document.getElementById("content").style.display = "none";
+          document.getElementById("buttons").style.display = "none";
+        }
+
+        if (data.data !== null) {
+          //   document.getElementById("heading").style.backgroundColor = "#FFFFFF";
+          document.getElementById("content").style.backgroundColor = "#FFFFFF";
+          document.getElementById("buttons").style.backgroundColor = "#FFFFFF";
+          console.log(data.data.button[0].target);
+
+          //   document.getElementById(
+          //     "heading"
+          //   ).innerHTML += `<p style="font-size: 18px; font-weight: 500">Please help us verify these details about your Educational background.</p>`;
+
+          document.getElementById("ed_container").style.height = "320px";
+          document.getElementById("ed_container").style.overflowY = "scroll";
+
+          document.getElementById(
+            "api_headings"
+          ).innerHTML += `<p style="font-size: 17px; margin-top: 0" >${data.data.headingText}</p><p style="font-size: 16px">${data.data.subHeadingText}</p>`;
+
+          const edContainerDetails = document.getElementById(
+            "ed_container_details"
+          );
+
+          document.getElementById(
+            "buttons"
+          ).innerHTML += `<button style="border-radius: 8px; color: #DC1313; background-color: #ffffff; border: 1px solid #DC1313; padding: 12px 35px; font-size: 15px; width: 49%;" onclick="noButtonClicked()">${data.data.button[1].target.type.toUpperCase()}</button><button style="border-radius: 8px; color: #ffffff; background: linear-gradient(94.21deg,#252424 4.48%,#252424 4.49%,#424242 87.94%); border: 1px solid #787878; padding: 12px 35px; font-size: 15px; width: 49%;" onclick="yesButtonClicked()">${data.data.button[0].target.type.toUpperCase()}</button>`;
+
+          data.data.data.forEach((x) => {
+            const educationSection = document.createElement("div");
+            educationSection.classList.add("education-section");
+
+            const header = document.createElement("p");
+            header.style.margin = "0px 10px 10px 10px";
+            header.style.fontSize = "14.5px";
+            header.textContent = x.header;
+            educationSection.appendChild(header);
+
+            const breaker = document.createElement("hr");
+            breaker.style.color = "#ffffff";
+            breaker.style.margin = "0 0 10px 0";
+            educationSection.appendChild(breaker);
+
+            x.data.forEach((i) => {
+              if (i.value) {
+                const title = document.createElement("p");
+                title.style.margin = "0 10px";
+                title.style.color = "#737171";
+                title.style.fontSize = "12px";
+                title.textContent = i.title;
+                educationSection.appendChild(title);
+
+                const value = document.createElement("p");
+                value.style.margin = "0 10px";
+                value.style.marginBottom = "10px";
+                value.style.color = "#1D1919";
+                value.style.fontSize = "14px";
+                value.textContent = i.value;
+                educationSection.appendChild(value);
+              }
+            });
+
+            edContainerDetails.appendChild(educationSection);
+          });
+        }
+      }
+    </script>
+  </body>
+</html>
+
+<!-- 
+        // const response = await fetch(apiUrl + "/profile-verification", {
+        //   method: "POST",
+        //   headers: {
+        //     accept: "*/*",
+        //     udid: "1234",
+        //     lang: "en",
+        //     ver: "4.3",
+        //     devicetype: "web",
+        //     appversion: "123",
+        //     hashKey: `${statHash}`,
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify({
+        //     track_id: `${trackId}`,
+        //     module: `${moduleType}`,
+        //   }),
+        // });
+        // const data = await response.json();
+        // console.log(data);
+        // console.log(data.data.data[0].data);
+        // if (data.data !== null) {
+        //   document.getElementById(
+        //     "heading"
+        //   ).innerHTML += `<p style="font-size: 18px; font-weight: 500">Please help us verify these details about your Educational background.</p>`;
+        //   data.data.data[0].data.forEach((i) => {
+        //     if (i.value) {
+        //       document.getElementById(
+        //         "content"
+        //       ).innerHTML += `<p>${i.title}</p><p>${i.value}</p>`;
+        //     }
+        //   });
+        // }
+ -->

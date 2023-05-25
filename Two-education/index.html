@@ -3,11 +3,25 @@
   <head>
     <title> </title>
   </head>
-  <body class="main_container" onload="myFunction()">
-    <div id="actionTaken"></div>
-    <div id="heading"></div>
-    <div id="content"></div>
-    <div id="buttons"></div>
+  <body
+    class="main_container"
+    onload="myFunction()"
+    style="font-family: sans-serif"
+  >
+    <div id="heading" style="padding: 10px"></div>
+    <div
+      id="content"
+      style="padding: 10px; background-color: rgb(195, 223, 223)"
+    ></div>
+    <div
+      id="buttons"
+      style="
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        background-color: rgb(195, 223, 223);
+      "
+    ></div>
   </body>
 
   <script>
@@ -190,40 +204,45 @@
     const myFunction = function () {
       const response = mockApiData.data;
       //   console.log(response);
+      if (response) {
+        //   heading
+        document.getElementById(
+          "heading"
+        ).innerHTML = `<p style="font-size: 18px; font-weight: 500">${response.headingText}</p>`;
 
-      //   heading
-      document.getElementById(
-        "heading"
-      ).innerHTML = `<h3>${response.headingText}</h3>`;
+        //   buttons
+        document.getElementById(
+          "buttons"
+        ).innerHTML = `<button style="border-radius: 8px; color: black; background-color: #ffffff; border: 1px solid #787878; padding: 12px 35px; font-size: 15px; width: 49%;" onclick='noButtonClicked()'>${
+          response.button[1].target.type == "reject"
+            ? response.button[1].text
+            : ""
+        }</button><button style="border-radius: 8px; color: #ffffff; background: linear-gradient(94.21deg,#252424 4.48%,#252424 4.49%,#424242 87.94%); border: 1px solid #787878; padding: 12px 35px; font-size: 15px; width: 49%;" onclick='yesButtonClicked()'>${
+          response.button[0].target.type == "confirm"
+            ? response.button[0].text
+            : ""
+        }</button>`;
 
-      //   buttons
-      document.getElementById(
-        "buttons"
-      ).innerHTML = `<button onclick='yesButtonClicked()'>${
-        response.button[0].target.type == "confirm"
-          ? response.button[0].text
-          : ""
-      }</button><button onclick='noButtonClicked()'>${
-        response.button[1].target.type == "reject"
-          ? response.button[1].text
-          : ""
-      }</button>`;
+        //   contents
+        response.verificationData.forEach((item) => {
+          if (item.header != "") {
+            document.getElementById(
+              "content"
+            ).innerHTML += `<p style="">${item.header}</p>`;
+            item.details.forEach((i) => {
+              // console.log(i.value);
+              if (i.value) {
+                document.getElementById(
+                  "content"
+                ).innerHTML += `<span>${i.identifier}</span> - <span>${i.value}</span><br>`;
+              }
+            });
+          }
+        });
 
-      //   contents
-      response.verificationData.forEach((item) => {
-        document.getElementById("content").innerHTML += `<p>${item.header}</p>`;
-
-        if (item.header != "") {
-          item.details.forEach((i) => {
-            // console.log(i.value);
-            if (i.value) {
-              document.getElementById(
-                "content"
-              ).innerHTML += `<span>${i.identifier}</span> : <span>${i.value}</span><br>`;
-            }
-          });
-        }
-      });
+        document.getElementById("content").style.height = "320px";
+        document.getElementById("content").style.overflowY = "scroll";
+      }
     };
   </script>
 </html>
