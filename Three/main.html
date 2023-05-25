@@ -433,7 +433,7 @@
 
           document.getElementById(
             "buttons"
-          ).innerHTML += `<button style="border-radius: 8px; color: #DC1313; background-color: #ffffff; border: 1px solid #DC1313; padding: 12px 35px; font-size: 15px; width: 49%;" onclick="noButtonClicked()">${data.data.button[1].target.type.toUpperCase()}</button><button style="border-radius: 8px; color: #ffffff; background: linear-gradient(94.21deg,#252424 4.48%,#252424 4.49%,#424242 87.94%); border: 1px solid #787878; padding: 12px 35px; font-size: 15px; width: 49%;" onclick="yesButtonClicked()">${data.data.button[0].target.type.toUpperCase()}</button>`;
+          ).innerHTML += `<button style="border-radius: 8px; color: #DC1313; background-color: #ffffff; border: 1px solid #DC1313; padding: 12px 35px; font-size: 15px; width: 49%;" onclick="noButtonClicked()">${data.data.button[1].target.type}</button><button style="border-radius: 8px; color: #ffffff; background: linear-gradient(94.21deg,#252424 4.48%,#252424 4.49%,#424242 87.94%); border: 1px solid #787878; padding: 12px 35px; font-size: 15px; width: 49%;" onclick="yesButtonClicked()">${data.data.button[0].target.type}</button>`;
           data.data.data.forEach((x) => {
             const educationSection = document.createElement("div");
             educationSection.classList.add("education-section");
